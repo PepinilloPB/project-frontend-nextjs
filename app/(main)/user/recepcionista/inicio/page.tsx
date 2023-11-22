@@ -306,6 +306,7 @@ const Inicio = () => {
       </div>*/
       <div className="grid" style={{
         background: 'rgba(51, 107, 134, 1)',
+        height: '100vh'
         //height: window.innerHeight
       }}>
         <div className="col-12 md:col-5" style={shortStack.style}>

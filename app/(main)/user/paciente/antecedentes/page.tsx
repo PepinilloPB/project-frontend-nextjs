@@ -12,6 +12,7 @@ import Acceso_Denegado from "../acceso_denegado";
 import Navbar from "@/app/(project)/components/navbar/page";
 
 import get_un_historial from "../utils/get_historial_handler";
+import Navbar_Paciente from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -74,14 +75,17 @@ const Antecedentes_Medicos = () => {
 
   return (denegado ? <><Acceso_Denegado /></> : 
     <div style={{
-      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
+      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+      height: '100vh'
     }}>
       {/*<Navbar tipo_usuario="paciente"/>*/}
+      <Navbar_Paciente />
       { loading === true ? 
       (<div className={containerClassName}><ProgressSpinner /></div>) : 
       (<div className="card" style={{
         background: 'rgba(143, 175, 196, 1)',
         borderColor: 'rgba(143, 175, 196, 1)',
+        height: '100%'
         //height: window.innerHeight
       }}>
         <h5 style={shortStack.style}>Antecedentes Médicos</h5>

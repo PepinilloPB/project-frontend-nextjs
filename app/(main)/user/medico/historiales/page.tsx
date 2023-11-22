@@ -17,6 +17,7 @@ import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import get_historial_busqueda from "../util/get_historial_busqueda_handler";
 import { Column } from "primereact/column";
+import Navbar_Medico from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -72,10 +73,12 @@ const Buscar_Historiales = () => {
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
   }}>
     {/*<Navbar tipo_usuario="medico" />*/}
+    <Navbar_Medico />
     { loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
+      height: '100%'
       //height: window.innerHeight
     }}>
       <div className="col-12" style={shortStack.style}>

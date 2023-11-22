@@ -26,6 +26,7 @@ import get_un_consultorio from "../utils/get_consultorio_handler";
 import get_consultorio_especialidad from "../utils/get_consultorio_especialidad_handler";
 import put_cita from "../utils/put_cita_handler";
 import get_citas_fecha_consultorio from "../utils/get_citas_fecha_y_consultorio_handler";
+import Navbar_Paciente from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -266,10 +267,12 @@ const Ver_Cita = () => {
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
     }}>
       {/*<Navbar tipo_usuario="paciente" />*/}
+      <Navbar_Paciente />
       { loading === true ? 
       (<div className={containerClassName}><ProgressSpinner /></div>) : 
       (<div className="grid" style={{
         background: 'rgba(143, 175, 196, 1)',
+        height: '100vh'
         //height: window.innerHeight
       }}>
         <div className="col-12" style={shortStack.style}>

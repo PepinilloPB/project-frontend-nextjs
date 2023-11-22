@@ -22,6 +22,7 @@ import { Dropdown } from "primereact/dropdown";
 import get_consultorios from "../util/get_consultorio_handler";
 import { InputTextarea } from "primereact/inputtextarea";
 import post_peticion from "../util/post_peticion_handler";
+import Navbar_Medico from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -151,10 +152,12 @@ const Inicio = () => {
     //height: window.innerHeight
   }}>
     {/*<Navbar tipo_usuario="medico" />*/}
+    <Navbar_Medico />
     {loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
+      height: '100%'
     }}>
       <div className="col-12">
         <div className="card" style={{

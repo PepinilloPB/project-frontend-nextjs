@@ -22,6 +22,7 @@ import Navbar from "@/app/(project)/components/navbar/page";
 import get_un_consultorio from "../../paciente/utils/get_consultorio_handler";
 import put_consultorio from "../utils/put_consultorio_handler";
 import get_especialidades from "../utils/get_especialidades_handler";
+import Navbar_Admin from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -165,6 +166,7 @@ const Ver_Consultorio = () => {
     //height: window.innerHeight
   }}>
     {/*<Navbar tipo_usuario="admin" />*/}
+    <Navbar_Admin />
     { loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> : 
     (<div className="grid" style={{

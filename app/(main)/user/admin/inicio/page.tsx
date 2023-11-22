@@ -278,6 +278,7 @@ const Inicio = () => {
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(51, 107, 134, 1)',
+      height: '100%'
     }}>
       <div className="col-12 md:col-4">
         <div className="card" style={{

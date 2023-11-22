@@ -23,6 +23,7 @@ import get_un_historial from "../utils/get_historial_handler";
 import put_historial from "../utils/put_historial_handler";
 import post_historial from "../utils/post_historial_handler";
 import { Accordion, AccordionTab } from "primereact/accordion";
+import Navbar_Paciente from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -232,10 +233,12 @@ const Inicio_Paciente = () => {
     //height: window.innerHeight
   }}>
     {/*<Navbar tipo_usuario="paciente"/>*/}
+    <Navbar_Paciente />
     {loading === true ? 
     (<div className={containerClassName}><ProgressSpinner /></div>) : 
     (<div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
+      height: '100vh'
     }}>
       <div className="col-12">
         <div className="card" style={{

@@ -29,6 +29,7 @@ import get_un_historial from "../../utils/get_historial_handler";
 import { Sidebar } from "primereact/sidebar";
 import post_historial from "../../utils/post_historial_handler";
 import put_historial from "../../utils/put_historial_handler";
+import Navbar_Paciente from "../../navbar";
 
 const shortStack = localfont({ src: "../../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -408,10 +409,12 @@ const Solicitar_Cita = () => {
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
     }}>
         {/*<Navbar tipo_usuario="paciente"/>*/}
+        <Navbar_Paciente />
         { loading === true ? 
         (<div className={containerClassName}><ProgressSpinner /></div>) :
         (<div className="grid" style={{
           background: 'rgba(143, 175, 196, 1)',
+          height: '100vh'
           //height: window.innerHeight
         }}>
           <div className="col-12" style={shortStack.style}>

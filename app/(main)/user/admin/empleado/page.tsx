@@ -24,6 +24,7 @@ import get_un_consultorio from "../../paciente/utils/get_consultorio_handler";
 import put_empleado from "../utils/put_empleado_handler";
 import post_actualizar_usuario from "../utils/post_actualizar_usuario_handler";
 import get_consultorios from "../utils/get_consultorio_handler";
+import Navbar_Admin from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -149,6 +150,7 @@ const Ver_Empleado = () => {
     //height: window.innerHeight
   }}>
     {/*<Navbar tipo_usuario="admin"/>*/}
+    <Navbar_Admin />
     { loading ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{

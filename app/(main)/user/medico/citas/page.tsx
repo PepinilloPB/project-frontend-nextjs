@@ -14,6 +14,7 @@ import Acceso_Denegado from "../acceso_denegado";
 import Navbar from "@/app/(project)/components/navbar/page";
 
 import get_citas_consultorio from "../util/get_citas_consultorio_handler";
+import Navbar_Medico from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -53,10 +54,12 @@ const Ver_Citas = () => {
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
   }}>
     {/*<Navbar tipo_usuario="medico"/>*/}
+    <Navbar_Medico />
     { loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
+      height: '100%'
       //height: window.innerHeight
     }}>
       <div className="col-12" style={shortStack.style}>

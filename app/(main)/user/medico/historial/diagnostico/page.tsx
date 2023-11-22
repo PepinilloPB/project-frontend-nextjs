@@ -26,6 +26,7 @@ import put_historial from "../../util/put_historial_handler";
 import put_cita from "../../util/put_cita_handler";
 import get_nombres from "../../util/get_nombres_archivos_handler";
 import get_archivo from "../../util/get_archivo_handler";
+import Navbar_Medico from "../../navbar";
 
 const shortStack = localfont({ src: "../../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -304,10 +305,12 @@ const Ver_Diagnostico = () => {
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
   }}>
     {/*<Navbar tipo_usuario="medico"/>*/}
+    <Navbar_Medico />
     { loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
+      height: '100%'
       //height: window.innerHeight
     }}>
       <div className="col-12">

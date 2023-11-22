@@ -18,6 +18,7 @@ import get_consultorios from "../../utils/get_consultorio_handler";
 import post_empleado from "../../utils/post_empleado";
 import signup_medico from "../../utils/signup_medico_handler";
 import signup_recepcionista from "../../utils/signup_recepcionista_handler";
+import Navbar_Admin from "../../navbar";
 
 const shortStack = localfont({ src: "../../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -128,10 +129,12 @@ const Nuevo_Empleado = () => {
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
   }}>
     {/*<Navbar tipo_usuario="admin"/>*/}
+    <Navbar_Admin />
     { loading ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{
         background: 'rgba(51, 107, 134, 1)',
+        height: '100%'
         //height: window.innerHeight
       }}>
         <div className="col-12" style={shortStack.style}>

@@ -20,6 +20,7 @@ import { RadioButton } from "primereact/radiobutton";
 import post_historial from "../../util/post_historial_handler";
 import signup_paciente from "../../util/signup_paciente_handler";
 import { InputTextarea } from "primereact/inputtextarea";
+import Navbar_Medico from "../../navbar";
 
 const shortStack = localfont({ src: "../../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -239,10 +240,12 @@ const Nuevo_Historial = () => {
       //height: window.innerHeight
     }}>
       {/*<Navbar tipo_usuario="medico"/>*/}
+      <Navbar_Medico />
       { loading === true ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{
         background: 'rgba(143, 175, 196, 1)',
+        height: '100%'
       }}>
         <div className="col-12">
           <div className="card" style={{

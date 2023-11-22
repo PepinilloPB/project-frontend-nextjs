@@ -28,6 +28,7 @@ import put_historial from "../util/put_historial_handler";
 import get_citas_historial from "../util/get_citas_historial_handler";
 import get_nombres from "../util/get_nombres_archivos_handler";
 import get_archivo from "../util/get_archivo_handler";
+import Navbar_Medico from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -478,10 +479,12 @@ const Ver_Historial = () => {
     //height: window.innerHeight
   }}>
     {/*<Navbar tipo_usuario="medico"/>*/}
+    <Navbar_Medico />
     { loading === true ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
+      height: '100%'
     }}>
       <div className="col-12">
         <div className="card" style={{

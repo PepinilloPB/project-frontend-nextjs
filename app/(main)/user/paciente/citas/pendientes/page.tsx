@@ -14,6 +14,7 @@ import Navbar from "@/app/(project)/components/navbar/page";
 
 import get_citas_historial from "../../utils/get_citas_historial_handler";
 import get_un_historial from "../../utils/get_historial_handler";
+import Navbar_Paciente from "../../navbar";
 
 const shortStack = localfont({ src: "../../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -127,8 +128,10 @@ const Citas_Pendientes = () => {
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
     }}>
       {/*<Navbar tipo_usuario="paciente"/>*/}
+      <Navbar_Paciente />
       <div className="grid" style={{
         background: 'rgba(143, 175, 196, 1)',
+        height: '100vh'
         //height: window.innerHeight
       }}>
         <div className="col-12" style={shortStack.style}>
