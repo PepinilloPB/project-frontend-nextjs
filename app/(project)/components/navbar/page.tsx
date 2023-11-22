@@ -23,7 +23,13 @@ const shortStack = localfont({ src: "../../../../fonts/ShortStack-Regular.ttf" }
 
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 
-const Navbar = ({ tipo_usuario } : { tipo_usuario : string | undefined }) => {
+interface props {
+   tipo_usuario : { tipo_usuario : string | undefined };
+}
+
+const Navbar = () => {};
+
+/*const Navbar = ({ tipo_usuario } : props) => {
   const [isHidden, setIsHidden] = useState(false);
   const [loading, setLoading] = useState(true);
   const [busqueda, setBusqueda] = useState("");
@@ -51,6 +57,7 @@ const Navbar = ({ tipo_usuario } : { tipo_usuario : string | undefined }) => {
     router.push('/user/paciente/citas/nueva?id=' + rowData.data.id);
     setLoading(false);
   }
+
 
   return (
     <div className="py-4 px-4 mx-0 md:mx-6 lg:px-8 flex align-items-center justify-content-between relative lg:static"
@@ -128,7 +135,7 @@ const Navbar = ({ tipo_usuario } : { tipo_usuario : string | undefined }) => {
         {tipo_usuario?.includes("paciente") ? 
         <div className="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
           <span className="p-input-icon-right">
-            <i className="pi pi-search" /*onClick={() => console.log(busqueda)}*/ 
+            <i className="pi pi-search" 
               onClick={toggleBusqueda} />
             <InputText type="text" placeholder="Buscar"
               onChange={(e) => setBusqueda(e.target.value)}/>
@@ -146,6 +153,6 @@ const Navbar = ({ tipo_usuario } : { tipo_usuario : string | undefined }) => {
       </div>
     </div>
   );
-}
+}*/
 
 export default Navbar;
