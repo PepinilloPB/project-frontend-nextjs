@@ -82,7 +82,7 @@ const Antecedentes_Medicos = () => {
       (<div className="card" style={{
         background: 'rgba(143, 175, 196, 1)',
         borderColor: 'rgba(143, 175, 196, 1)',
-        height: window.innerHeight
+        //height: window.innerHeight
       }}>
         <h5 style={shortStack.style}>Antecedentes Médicos</h5>
         <Accordion style={shortStack.style}>

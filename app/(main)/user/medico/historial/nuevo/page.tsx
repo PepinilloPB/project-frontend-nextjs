@@ -236,7 +236,7 @@ const Nuevo_Historial = () => {
     <><Acceso_Denegado /></> :
     <div style={{
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
-      height: window.innerHeight
+      //height: window.innerHeight
     }}>
       {/*<Navbar tipo_usuario="medico"/>*/}
       { loading === true ? 

@@ -306,7 +306,7 @@ const Inicio = () => {
       </div>*/
       <div className="grid" style={{
         background: 'rgba(51, 107, 134, 1)',
-        height: window.innerHeight
+        //height: window.innerHeight
       }}>
         <div className="col-12 md:col-5" style={shortStack.style}>
           <div className="card" style={{

@@ -129,7 +129,7 @@ const Citas_Pendientes = () => {
       {/*<Navbar tipo_usuario="paciente"/>*/}
       <div className="grid" style={{
         background: 'rgba(143, 175, 196, 1)',
-        height: window.innerHeight
+        //height: window.innerHeight
       }}>
         <div className="col-12" style={shortStack.style}>
           <div className="card" style={{
