@@ -43,7 +43,7 @@ const Antecedentes_Medicos = () => {
 
   var token: any = {};
 
-  try {
+  /*try {
     token = jwt_decode(document.cookie.replace("token=", ""));
 
     useEffect(() => {
@@ -56,7 +56,21 @@ const Antecedentes_Medicos = () => {
     }, []);
   } catch (error) {
     useEffect(() => setDenegado(true), []);
-  }
+  }*/
+
+  useEffect(() => {
+    try {
+      token = jwt_decode(document.cookie.replace("token=", ""));
+      get_un_historial(token['custom:historial'])
+      .then(data => {
+        setLoading(false);
+        setHistorial(data);
+        console.log(data);
+      });
+    } catch (error) {
+      setDenegado(true)
+    }
+  }, []);
 
   return (denegado ? <><Acceso_Denegado /></> : 
     <div style={{
