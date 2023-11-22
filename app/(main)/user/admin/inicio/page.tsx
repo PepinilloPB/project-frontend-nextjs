@@ -38,6 +38,7 @@ import post_empleado from "../utils/post_empleado";
 import signup_medico from "../utils/signup_medico_handler";
 import signup_recepcionista from "../utils/signup_recepcionista_handler";
 import put_peticion from "../utils/put_peticion_handler";
+import Navbar_Admin from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -155,11 +156,12 @@ const Inicio = () => {
       }
     });
   };
-  
+
   var token: any = {};
   
   useEffect(() => {
     initFilters();
+
     try {
       token = jwt_decode(document.cookie.replace("token=", ""));
       setNombre(token['given_name']);
@@ -268,10 +270,10 @@ const Inicio = () => {
 
   return (denegado ? <><Acceso_Denegado /></> : 
   <div style={{
-    background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
-    //height: window.innerHeight
+    background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
   }}>
     {/*<Navbar tipo_usuario="admin" />*/}
+    <Navbar_Admin />
     {loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
