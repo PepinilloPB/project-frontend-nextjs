@@ -127,7 +127,7 @@ const Nuevo_Empleado = () => {
   <div style={{
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
   }}>
-    <Navbar tipo_usuario="admin"/>
+    {/*<Navbar tipo_usuario="admin"/>*/}
     { loading ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{

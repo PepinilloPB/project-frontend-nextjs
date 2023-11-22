@@ -126,7 +126,7 @@ const Citas_Pendientes = () => {
     <div style={{
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
     }}>
-      <Navbar tipo_usuario="paciente"/>
+      {/*<Navbar tipo_usuario="paciente"/>*/}
       <div className="grid" style={{
         background: 'rgba(143, 175, 196, 1)',
         height: window.innerHeight

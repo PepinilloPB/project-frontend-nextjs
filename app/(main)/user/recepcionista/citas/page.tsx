@@ -108,7 +108,7 @@ const Ver_Citas = () => {
   return (denegado ? 
   <><Acceso_Denegado /></> : 
   <div>
-    <Navbar tipo_usuario="recep"/>
+    {/*<Navbar tipo_usuario="recep"/>*/}
     { loading ? 
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid">

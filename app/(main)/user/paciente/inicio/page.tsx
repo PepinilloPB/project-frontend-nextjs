@@ -231,7 +231,7 @@ const Inicio_Paciente = () => {
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
     height: window.innerHeight
   }}>
-    <Navbar tipo_usuario="paciente"/>
+    {/*<Navbar tipo_usuario="paciente"/>*/}
     {loading === true ? 
     (<div className={containerClassName}><ProgressSpinner /></div>) : 
     (<div className="grid" style={{

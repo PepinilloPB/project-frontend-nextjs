@@ -240,7 +240,7 @@ const Nuevo_Consultorio = () => {
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
     height: window.innerHeight
   }}>
-    <Navbar tipo_usuario="admin" inicio="admin"/>
+    {/*<Navbar tipo_usuario="admin"/>*/}
     { loading ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{

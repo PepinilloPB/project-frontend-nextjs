@@ -238,7 +238,7 @@ const Nuevo_Historial = () => {
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
       height: window.innerHeight
     }}>
-      <Navbar tipo_usuario="medico"/>
+      {/*<Navbar tipo_usuario="medico"/>*/}
       { loading === true ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{
