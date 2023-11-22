@@ -23,7 +23,7 @@ const shortStack = localfont({ src: "../../../../fonts/ShortStack-Regular.ttf" }
 
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 
-const Navbar = ({ tipo_usuario = "", inicio = "" }) => {
+const Navbar = ({ tipo_usuario } : { tipo_usuario : any }) => {
   const [isHidden, setIsHidden] = useState(false);
   const [loading, setLoading] = useState(true);
   const [busqueda, setBusqueda] = useState("");
@@ -51,10 +51,6 @@ const Navbar = ({ tipo_usuario = "", inicio = "" }) => {
     router.push('/user/paciente/citas/nueva?id=' + rowData.data.id);
     setLoading(false);
   }
-
-  /*const toggleMenuItemClick = () => {
-    setIsHidden((prevState) => !prevState);
-  };*/
 
   return (
     <div className="py-4 px-4 mx-0 md:mx-6 lg:px-8 flex align-items-center justify-content-between relative lg:static"
