@@ -23,7 +23,7 @@ const shortStack = localfont({ src: "../../../../fonts/ShortStack-Regular.ttf" }
 
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 
-const Navbar = ({ tipo_usuario } : { tipo_usuario : any }) => {
+const Navbar = ({ tipo_usuario } : { tipo_usuario : string | undefined }) => {
   const [isHidden, setIsHidden] = useState(false);
   const [loading, setLoading] = useState(true);
   const [busqueda, setBusqueda] = useState("");
@@ -57,10 +57,10 @@ const Navbar = ({ tipo_usuario } : { tipo_usuario : any }) => {
     style={{
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
     }}>
-      <Link href={tipo_usuario.includes("paciente") ? "/user/paciente/inicio" : 
-                  tipo_usuario.includes("admin") ? "/user/admin/inicio" : 
-                  tipo_usuario.includes("medico") ? "/user/medico/inicio" : 
-                  tipo_usuario.includes("recep") ? "/user/recepcionista/inicio" : ""} 
+      <Link href={tipo_usuario?.includes("paciente") ? "/user/paciente/inicio" : 
+                  tipo_usuario?.includes("admin") ? "/user/admin/inicio" : 
+                  tipo_usuario?.includes("medico") ? "/user/medico/inicio" : 
+                  tipo_usuario?.includes("recep") ? "/user/recepcionista/inicio" : ""} 
         className="flex align-items-center">
         <img src={`/layout/images/logo.svg`} alt="Sakai Logo" height="50" className="mr-0 lg:mr-2" />
         <span className="text-900 font-medium text-2xl line-height-3 mr-8" style={shortStack.style}>MEDNOW</span>
@@ -76,56 +76,56 @@ const Navbar = ({ tipo_usuario } : { tipo_usuario : any }) => {
         }}>
         <ul className="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
           <li>
-            { tipo_usuario.includes("paciente") ? 
+            { tipo_usuario?.includes("paciente") ? 
             (<a href="/user/paciente/citas/pendientes" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Citas Pendientes</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("admin") ? 
+            </a>) : tipo_usuario?.includes("admin") ? 
             (<a href="/user/admin/empleado/nuevo" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Crear Empleado</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("medico") ?
+            </a>) : tipo_usuario?.includes("medico") ?
             (<a href="/user/medico/historiales" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Buscar Historial</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("recep") ?
+            </a>) : tipo_usuario?.includes("recep") ?
             (<a href="/user/recepcionista/citas" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Ver Citas</span>
               <Ripple />
             </a>) : null}
           </li>
           <li>
-            { tipo_usuario.includes("paciente") ? 
+            { tipo_usuario?.includes("paciente") ? 
             (<a href="/user/paciente/citas/nueva" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Solicitar Citas</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("admin") ? 
+            </a>) : tipo_usuario?.includes("admin") ? 
             (<a href="/user/admin/consultorio/nuevo" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Crear Consultorio</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("medico") ?
+            </a>) : tipo_usuario?.includes("medico") ?
             (<a href="/user/medico/historial/nuevo" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Crear Historial</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("recep") ?
+            </a>) : tipo_usuario?.includes("recep") ?
             (<a href="/user/recepcionista/pagos" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Ver Pagos</span>
               <Ripple />
             </a>) : null}
           </li>
           <li>
-            { tipo_usuario.includes("paciente") ? 
+            { tipo_usuario?.includes("paciente") ? 
             (<a href="/user/paciente/antecedentes" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Antecedentes</span>
               <Ripple />
-            </a>) : tipo_usuario.includes("medico") ?
+            </a>) : tipo_usuario?.includes("medico") ?
             (<a href="/user/medico/citas" className="p-ripple flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3">
               <span style={shortStack.style}>Ver Citas</span>
               <Ripple />
             </a>) : null}
           </li>
         </ul>
-        {tipo_usuario.includes("paciente") ? 
+        {tipo_usuario?.includes("paciente") ? 
         <div className="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row cursor-pointer">
           <span className="p-input-icon-right">
             <i className="pi pi-search" /*onClick={() => console.log(busqueda)}*/ 
