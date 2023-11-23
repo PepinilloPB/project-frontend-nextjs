@@ -7,7 +7,7 @@ import localfont from 'next/font/local';
 import { Button } from 'primereact/button';
 import { Calendar } from "primereact/calendar";
 import { classNames } from 'primereact/utils';
-import { DataView } from "primereact/dataview";
+import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import { Dialog } from "primereact/dialog";
 import { Dropdown } from "primereact/dropdown";
 import { InputNumber } from "primereact/inputnumber";
@@ -183,7 +183,8 @@ const Nuevo_Consultorio = () => {
   const dataviewGridItem = (data: any) => {
     return (
         <div className="col-12 lg:col-4" style={{
-          background: 'rgba(143, 175, 196, 1)'
+          background: 'rgba(143, 175, 196, 1)',
+          borderColor: 'rgba(143, 175, 196, 1)'
         }}>
             <div className="card m-3 border-1 surface-border" style={{
               background: 'rgba(206, 159, 71, 1)',
@@ -208,9 +209,13 @@ const Nuevo_Consultorio = () => {
 
   const dataviewAddItem = () => {
     return (
-    <div className="col-12 lg:col-4" style={{
-      background: 'rgba(143, 175, 196, 1)'
-    }}>
+    <div className={turnos.length % 3 === 1 ? 
+        "col-12 lg:col-12" : turnos.length % 3 === 2 ? 
+        "col-12 lg:col-8" : "col-12 lg:col-4"
+      } 
+      style={{
+        background: 'rgba(143, 175, 196, 1)'
+      }}>
       <div className="card m-3 border-1 surface-border" style={{
           background: 'rgba(206, 159, 71, 1)',
           borderColor: 'rgba(206, 159, 71, 1)',  
@@ -225,7 +230,9 @@ const Nuevo_Consultorio = () => {
   
   const itemTemplate = (data: any, layout: 'grid' | 'list' | (string & Record<string, unknown>)) => {
     if (data === undefined) {
-        return dataviewAddItem();
+      //console.log(turnos.length);
+      return dataviewAddItem();
+      //return;
     }
 
     if (layout === 'list') {
@@ -234,6 +241,14 @@ const Nuevo_Consultorio = () => {
         return dataviewGridItem(data);
     }
   };
+
+  const header = () => {
+    return (
+        <div className="flex justify-end bg-gray-100 dark:bg-gray-800">
+            <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
+        </div>
+    );
+};
 
   return (denegado ? 
   <><Acceso_Denegado /></> : 
@@ -306,8 +321,8 @@ const Nuevo_Consultorio = () => {
             </div>
             <h5>Crear Turnos</h5>
             <div className="p-fluid formgrid grid" >
-              <div className="field col-12 md:col-12" >
-                <DataView value={turnos} layout={layout} itemTemplate={itemTemplate}></DataView>
+              <div className="field col-12 md:col-12">
+                <DataView value={turnos} layout={layout} itemTemplate={itemTemplate}/>
                 <Dialog header="Nuevo Turno" visible={display} onHide={() => setDisplay(false)} style={shortStack.style}>
                   <div className="p-fluid formgrid" >
                     <div className="field col-12 md:col-12">

@@ -267,7 +267,7 @@ const Inicio = () => {
 
     return ("");
   }
-
+  
   return (denegado ? <><Acceso_Denegado /></> : 
   <div style={{
     background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
@@ -278,7 +278,7 @@ const Inicio = () => {
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(51, 107, 134, 1)',
-      height: '100%'
+      height: '100vh'
     }}>
       <div className="col-12 md:col-4">
         <div className="card" style={{
@@ -468,46 +468,179 @@ const Inicio = () => {
           <div className="font-medium text-2xl text-900 mb-2" style={shortStack.style}>
             Información del Sistema  
           </div>
-          <Accordion activeIndex={0} style={{
-              background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)'
+          
+          <Accordion activeIndex={0} pt={{}}>
+            <AccordionTab header="Consultorios" style={shortStack.style} 
+            pt={{
+              content: {
+                style: {
+                  background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                  borderColor: 'rgba(51, 107, 134, 1)',
+                }
+              },
             }}>
-            <AccordionTab header="Consultorios" style={shortStack.style}>
               <div className="h-full align-items-center justify-content-center">
                 { loadingCons ? 
                 <div className={containerClassName}><ProgressSpinner /></div> : 
                 (<DataTable dataKey="id" filters={filtrosConsultorio}
                   filterDisplay="menu" value={consultorios} selectionMode="single"
                   responsiveLayout="scroll" emptyMessage="No existen consultorios"
-                  paginator rows={5}
-                  onRowClick={ver_consultorio} style={shortStack.style}>
-                  <Column header="Nombre" field="nombre" filter filterPlaceholder="Buscar por nombre"></Column>
-                  <Column header="Dirección" field="direccion" filter filterPlaceholder="Buscar por dirección"></Column>
-                  <Column header="Especialidad" field="especializacion" filter filterPlaceholder="Buscar por especialidad"></Column>
+                  paginator rows={5} onRowClick={ver_consultorio} style={shortStack.style}
+                  pt={{
+                    wrapper: {
+                      style: {
+                        borderTopLeftRadius: '15px',
+                        borderTopRightRadius: '15px'
+                      }
+                    }
+                  }}>
+                  <Column header="Nombre" field="nombre" filter filterPlaceholder="Buscar por nombre" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
+                  <Column header="Dirección" field="direccion" filter filterPlaceholder="Buscar por dirección" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
+                  <Column header="Especialidad" field="especializacion" filter filterPlaceholder="Buscar por especialidad" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
                 </DataTable>)}
               </div>
             </AccordionTab>
-            <AccordionTab header="Empleados" style={shortStack.style}>
+            <AccordionTab header="Empleados" style={shortStack.style} pt={{
+              content: {
+                style: {
+                  background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                  borderColor: 'rgba(51, 107, 134, 1)',
+                }
+              },
+            }}>
               <div className="h-full align-items-center justify-content-center">
                 { loadingEmp ? 
                 <div className={containerClassName}><ProgressSpinner /></div> : 
                 (<DataTable dataKey="id" filters={filtrosEmpleado}
                   filterDisplay="menu" value={empleados} selectionMode="single"
                   responsiveLayout="scroll" emptyMessage="No existen empleados"
-                  paginator rows={5} style={shortStack.style}
-                  onRowClick={ver_empleado}>
-                  <Column header="Nombre" field="nombre" filter filterPlaceholder="Buscar por nombre"></Column>
-                  <Column header="Apellido" field="apellido" filter filterPlaceholder="Buscar por apellido"></Column>
-                  <Column header="Rol de Usuario" field="rol" filter filterPlaceholder="Buscar por rol"></Column>
+                  paginator rows={5} style={shortStack.style} onRowClick={ver_empleado}
+                  pt={{
+                    wrapper: {
+                      style: {
+                        borderTopLeftRadius: '15px',
+                        borderTopRightRadius: '15px'
+                      }
+                    }
+                  }}>
+                  <Column header="Nombre" field="nombre" filter filterPlaceholder="Buscar por nombre" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
+                  <Column header="Apellido" field="apellido" filter filterPlaceholder="Buscar por apellido" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
+                  <Column header="Rol de Usuario" field="rol" filter filterPlaceholder="Buscar por rol" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
                   {/*<Column header="Consultorio" field="consultorio_id" body={consultorio_data}></Column>*/}
                 </DataTable>)}
               </div>
             </AccordionTab>
-            <AccordionTab header="Especialidades" style={shortStack.style}>
+            <AccordionTab header="Especialidades"  style={shortStack.style} pt={{
+              content: {
+                style: {
+                  background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                  borderColor: 'rgba(51, 107, 134, 1)',
+                }
+              },
+            }}>
               <div className="h-full align-items-center justify-content-center">
                 { loadingEsp ? 
                 <div className={containerClassName}><ProgressSpinner /></div> : 
-                (<DataTable value={especialidades} style={shortStack.style}>
-                  <Column header="Nombre" field="nombre"></Column>
+                (<DataTable value={especialidades} paginator rows={5} style={shortStack.style} pt={{
+                  wrapper: {
+                    style: {
+                      borderTopLeftRadius: '15px',
+                      borderTopRightRadius: '15px'
+                    }
+                  }
+                }}>
+                  <Column header="Nombre" field="nombre" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                        borderColor: 'rgba(143, 175, 196, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
                 </DataTable>)}
               </div>
             </AccordionTab>

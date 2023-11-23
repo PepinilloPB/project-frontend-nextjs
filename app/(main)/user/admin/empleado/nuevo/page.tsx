@@ -134,7 +134,7 @@ const Nuevo_Empleado = () => {
       <div className={containerClassName}><ProgressSpinner /></div> :
       <div className="grid" style={{
         background: 'rgba(51, 107, 134, 1)',
-        height: '100%'
+        height: '100vh'
         //height: window.innerHeight
       }}>
         <div className="col-12" style={shortStack.style}>
