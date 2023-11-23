@@ -426,6 +426,12 @@ const Inicio = () => {
               </div>
               <div className="field col-12 md:col-12">
                 <Button className="w-full p-3 text-xl justify-content-center" 
+                  style={{ 
+                    borderRadius: '20px',
+                    background: 'rgba(51, 107, 134, 1)',
+                    borderColor: 'rgba(51, 107, 134, 1)',
+                    color: 'rgba(143, 175, 196, 1)'
+                  }}
                   loading={loading} onClick={guardar_empleado}><p style={shortStack.style}>Crear Nuevo Empleado</p></Button>
               </div>
             </div>: peticion.tipo === "Cambio de Consultorio" ? 
@@ -455,7 +461,12 @@ const Inicio = () => {
               </div>
               <div className="field col-12 md:col-12">
                 <Button className="w-full p-3 text-xl justify-content-center" 
-                  loading={loading}><p style={shortStack.style}>Confirmar Cambio de Consultorio</p></Button>
+                  loading={loading} style={{ 
+                    borderRadius: '20px',
+                    background: 'rgba(51, 107, 134, 1)',
+                    borderColor: 'rgba(51, 107, 134, 1)',
+                    color: 'rgba(143, 175, 196, 1)'
+                  }}><p style={shortStack.style} >Confirmar Cambio de Consultorio</p></Button>
               </div>
             </div> : null}</Dialog>
         </div>}

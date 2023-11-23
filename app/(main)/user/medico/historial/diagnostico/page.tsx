@@ -27,6 +27,7 @@ import put_cita from "../../util/put_cita_handler";
 import get_nombres from "../../util/get_nombres_archivos_handler";
 import get_archivo from "../../util/get_archivo_handler";
 import Navbar_Medico from "../../navbar";
+import { Dropdown } from "primereact/dropdown";
 
 const shortStack = localfont({ src: "../../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -51,6 +52,7 @@ const Ver_Diagnostico = () => {
   const [examenFisico, setExamenFisico] = useState("");
   const [diagnostico, setDiagnostico] = useState("");
   const [tratamiento, setTratamiento] = useState("");
+  const [tipoPago, setTipoPago] = useState("");
 
   const [costo, setCosto] = useState(0);
 
@@ -89,6 +91,8 @@ const Ver_Diagnostico = () => {
   const [filesAntSubidos, setFilesAntSubidos] = useState<any[]>([]);
   const [base64Ant, setBase64Ant] = useState<String[]>([]);
   const [base64Diag, setBase64Diag] = useState<String[]>([]);
+
+  const opciones_pago = ["Efectivo", "Tarjeta", "Transferencia", "Tigo Money"];
 
   const { layoutConfig } = useContext(LayoutContext);
   const containerClassName = 
@@ -160,7 +164,7 @@ const Ver_Diagnostico = () => {
       tratamiento: tratamiento,
       cita_estado: 1,
       costo: costo,
-      pagado: false
+      tipo_pago: tipoPago
     }
 
     const body_historial = {
@@ -351,17 +355,21 @@ const Ver_Diagnostico = () => {
                           }}></InputNumber>
                       </div>
                     </li>
-                    {/*<li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
+                    <li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
                       <div className="text-700 w-6 md:w-4 font-medium">Tipo de Pago</div>
                       <div className="text-900 md:w-6 md:flex-order-0 flex-order-1">
-                        <InputNumber value={costo} onChange={(e) => setCosto(e.value ?? 0)} inputStyle={{ 
-                            borderRadius: '15px',
-                            background: 'rgba(206, 159, 71, 1)',
-                            borderColor: 'rgba(206, 159, 71, 1)',
-                            color: 'rgba(41, 49, 51, 1)'
-                          }}></InputNumber>
+                      <Dropdown id="tipo_pago" value={tipoPago} options={opciones_pago} 
+                        style={{ 
+                          borderRadius: '15px',
+                          background: 'rgba(206, 159, 71, 1)',
+                          borderColor: 'rgba(206, 159, 71, 1)',
+                          color: 'rgba(41, 49, 51, 1)'
+                        }}
+                        onChange={(e) => {
+                          setTipoPago(e.value);
+                        }}></Dropdown>
                       </div>
-                        </li>*/}
+                    </li>
                     <li className="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 border-300 flex-wrap">
                       <div className="text-700 w-6 md:w-2 font-medium">Creación y Actualización</div>
                       <div className="mr-5 flex align-items-center mt-3">
@@ -376,7 +384,15 @@ const Ver_Diagnostico = () => {
                     <li className="flex align-items-center border-top-1 border-300 flex-wrap">
                       <div className="md:w-12">
                         <Accordion style={shortStack.style}>
-                          <AccordionTab header="Datos de Paciente">
+                          <AccordionTab header="Datos de Paciente"
+                          pt={{
+                            content: {
+                              style: {
+                                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                borderColor: 'rgba(51, 107, 134, 1)',
+                              }
+                            },
+                          }}>
                             <ul className="list-none p-0 m-0 mb-3">
                               <li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
                                 <div className="text-500 w-6 md:w-4 font-medium">Código</div>
@@ -440,43 +456,149 @@ const Ver_Diagnostico = () => {
                               </li>
                             </ul>
                           </AccordionTab>
-                          <AccordionTab header="Antecedentes Médicos">
+                          <AccordionTab header="Antecedentes Médicos"
+                          pt={{
+                            content: {
+                              style: {
+                                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                borderColor: 'rgba(51, 107, 134, 1)',
+                              }
+                            },
+                          }}>
                           { loadingAnte ?
                             <div className={containerClassName}><ProgressSpinner /></div> :
                             <Accordion style={shortStack.style}>
-                              <AccordionTab header="Antecedentes Patológicos">
+                              <AccordionTab header="Antecedentes Patológicos"
+                              pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 {<InputTextarea rows={5} cols={30}
-                                  value={patologicos}
+                                  value={patologicos} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setPatologicos(e.target.value)}/>}
                               </AccordionTab>
-                              <AccordionTab header="Antecedentes No Patológicos">
+                              <AccordionTab header="Antecedentes No Patológicos"
+                              pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={noPatologicos}
+                                  value={noPatologicos} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setNoPatologicos(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Antecedentes Quirúrgicos">
+                              <AccordionTab header="Antecedentes Quirúrgicos"
+                              pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={quirurgicos}
+                                  value={quirurgicos} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setQuirurgicos(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Antecedentes Alérgicos">
+                              <AccordionTab header="Antecedentes Alérgicos"
+                              pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={alergicos}
+                                  value={alergicos} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setAlergicos(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Medicación Habitual">
-                                { medicina }
+                              <AccordionTab header="Medicación Habitual"
+                              pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={medicina}
+                                  value={medicina} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setMedicina(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Archivos de Antecedentes">
+                              <AccordionTab header="Archivos de Antecedentes"
+                              pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <DataTable value={filesAntSubidos} showGridlines paginator selectionMode="single"
                                   rows={5} emptyMessage="No tiene archivos guardados" 
-                                  onRowClick={(e) => obtener_archivo("ant", e.data.nombre)}>
-                                  <Column header="Nombre" field="nombre"></Column>
+                                  onRowClick={(e) => obtener_archivo("ant", e.data.nombre)}
+                                  pt={{
+                                    wrapper: {
+                                      style: {
+                                        borderTopLeftRadius: '15px',
+                                        borderTopRightRadius: '15px'
+                                      }
+                                    }
+                                  }}>
+                                  <Column header="Nombre" field="nombre" pt={{
+                                    headerCell: {
+                                      style: {
+                                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                        borderColor: 'rgba(51, 107, 134, 1)',
+                                      }
+                                    },
+                                    bodyCell: {
+                                      style: {
+                                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                        borderColor: 'rgba(206, 159, 71, 1)',
+                                      }
+                                    },
+                                  }}></Column>
                                 </DataTable>
-                                <Button label="Subir Archivos" onClick={() => setSubirArchivo(true)}></Button>
+                                <Button label="Subir Archivos" onClick={() => setSubirArchivo(true)} style={{ 
+                                  borderRadius: '20px',
+                                  background: 'rgba(51, 107, 134, 1)',
+                                  borderColor: 'rgba(51, 107, 134, 1)',
+                                  color: 'rgba(143, 175, 196, 1)'
+                                }}></Button>
                                 <Dialog onHide={() => setSubirArchivo(false)} visible={subirArchivo}>
                                   <div className="field col-12 md:col-12">
                                     <label>Archivos</label>
@@ -495,31 +617,94 @@ const Ver_Diagnostico = () => {
                               </AccordionTab>
                             </Accordion>}
                           </AccordionTab>
-                          <AccordionTab header="Diagnóstico Médico">
+                          <AccordionTab header="Diagnóstico Médico"  
+                          pt={{
+                            content: {
+                              style: {
+                                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                borderColor: 'rgba(51, 107, 134, 1)',
+                              }
+                            },
+                          }}>
                           { loadingDiag ?
                             <div className={containerClassName}><ProgressSpinner /></div> :
-                            <Accordion style={shortStack.style}>
-                              <AccordionTab header="Motivo de la Consulta">
+                            <Accordion style={shortStack.style} >
+                              <AccordionTab header="Motivo de la Consulta" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={motivosConsulta} 
+                                  value={motivosConsulta} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setMotivoConsulta(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Examen Físico">
+                              <AccordionTab header="Examen Físico" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={examenFisico}
+                                  value={examenFisico} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setExamenFisico(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Diagnóstico de la Consulta">
+                              <AccordionTab header="Diagnóstico de la Consulta" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={diagnostico}
+                                  value={diagnostico} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setDiagnostico(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Tratamiento Recetado">
+                              <AccordionTab header="Tratamiento Recetado" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <InputTextarea rows={5} cols={30}
-                                  value={tratamiento}
+                                  value={tratamiento} style={{ 
+                                    borderRadius: '15px',
+                                    background: 'rgba(206, 159, 71, 1)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                    color: 'rgba(41, 49, 51, 1)'
+                                  }}
                                   onChange={(e) => setTratamiento(e.target.value)}/>
                               </AccordionTab>
-                              <AccordionTab header="Archivos de Diagnóstico">
+                              <AccordionTab header="Archivos de Diagnóstico" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <div className="field col-12 md:col-12" style={shortStack.style}>
                                   <label>Archivos</label>
                                   <FileUpload name="demo[]" multiple accept="*" customUpload 
@@ -542,12 +727,19 @@ const Ver_Diagnostico = () => {
                     <li className="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 border-300 flex-wrap">
                       <div className="w-6 md:w-12 font-medium">
                         <Button label="Completar Consulta" onClick={confirmar_cita}
+                        style={{ 
+                          borderRadius: '20px',
+                          background: 'rgba(51, 107, 134, 1)',
+                          borderColor: 'rgba(51, 107, 134, 1)',
+                          color: 'rgba(143, 175, 196, 1)'
+                        }}
                           disabled={
                             motivosConsulta === "" || 
                             examenFisico === "" ||
                             diagnostico === "" ||
                             tratamiento === "" ||
-                            costo === 0}/>
+                            costo === 0 ||
+                            tipoPago === ""}/>
                       </div>
                     </li>
                   </ul>

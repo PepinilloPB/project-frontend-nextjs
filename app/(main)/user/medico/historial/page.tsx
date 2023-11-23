@@ -784,31 +784,106 @@ const Ver_Historial = () => {
                     </li>
                     <li className="flex align-items-center border-top-1 border-300 flex-wrap">
                       <div className="md:w-12 md:flex-order-0 flex-order-1">
-                        <Accordion style={shortStack.style}>
-                          <AccordionTab header="Antecedentes Médicos">
+                        <Accordion style={shortStack.style} >
+                          <AccordionTab header="Antecedentes Médicos" pt={{
+                            content: {
+                              style: {
+                                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                borderColor: 'rgba(51, 107, 134, 1)',
+                              }
+                            },
+                          }}>
                             <Accordion style={shortStack.style}>
-                              <AccordionTab header="Antecedentes Patológicos">
+                              <AccordionTab header="Antecedentes Patológicos" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <p>{ historial.a_patologicos }</p>
                               </AccordionTab>
-                              <AccordionTab header="Antecedentes No Patológicos">
+                              <AccordionTab header="Antecedentes No Patológicos" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <p>{ historial.a_no_patologicos }</p>
                               </AccordionTab>
-                              <AccordionTab header="Antecedentes Quirúrgicos">
+                              <AccordionTab header="Antecedentes Quirúrgicos" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <p>{ historial.a_quirurgicos }</p>
                               </AccordionTab>
-                              <AccordionTab header="Antecedentes Alérgicos">
+                              <AccordionTab header="Antecedentes Alérgicos" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <p>{ historial.a_alergicos }</p>
                               </AccordionTab>
-                              <AccordionTab header="Medicación Habitual">
+                              <AccordionTab header="Medicación Habitual" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <p>{ historial.med_habitual }</p>
                               </AccordionTab>
-                              <AccordionTab header="Archivos de Antecedentes">
+                              <AccordionTab header="Archivos de Antecedentes" pt={{
+                                content: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                              }}>
                                 <DataTable value={filesAntSubidos} showGridlines paginator selectionMode="single"
                                   rows={5} emptyMessage="No tiene archivos guardados" 
-                                  onRowClick={(e) => obtener_archivo("ant", e.data.nombre)}>
-                                  <Column header="Nombre" field="nombre"></Column>
+                                  onRowClick={(e) => obtener_archivo("ant", e.data.nombre)} pt={{
+                                    wrapper: {
+                                      style: {
+                                        borderTopLeftRadius: '15px',
+                                        borderTopRightRadius: '15px'
+                                      }
+                                    }
+                                  }}>
+                                  <Column header="Nombre" field="nombre" pt={{
+                                    headerCell: {
+                                      style: {
+                                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                        borderColor: 'rgba(51, 107, 134, 1)',
+                                      }
+                                    },
+                                    bodyCell: {
+                                      style: {
+                                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                        borderColor: 'rgba(206, 159, 71, 1)',
+                                      }
+                                    },
+                                  }}></Column>
                                 </DataTable>
-                                <Button label="Subir Archivos" onClick={() => setSubirArchivo(true)}></Button>
+                                <Button label="Subir Archivos" onClick={() => setSubirArchivo(true)} style={{ 
+                                  borderBottomLeftRadius: '20px',
+                                  borderBottomRightRadius: '20px',
+                                  background: 'rgba(51, 107, 134, 1)',
+                                  borderColor: 'rgba(51, 107, 134, 1)',
+                                  color: 'rgba(143, 175, 196, 1)'
+                                }}></Button>
                                 <Dialog onHide={() => setSubirArchivo(false)} visible={subirArchivo}>
                                   <div className="field col-12 md:col-12">
                                     <label>Archivos</label>
@@ -833,14 +908,41 @@ const Ver_Historial = () => {
                     <li className="flex align-items-center border-top-1 border-300 flex-wrap">
                       <div className="md:w-12 md:flex-order-0 flex-order-1">
                         <Accordion style={shortStack.style}>
-                          <AccordionTab header="Diagnósticos Médicos">
+                          <AccordionTab header="Diagnósticos Médicos" pt={{
+                              content: {
+                                style: {
+                                  background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                  borderColor: 'rgba(51, 107, 134, 1)',
+                                }
+                              },
+                            }}>
                             <DataTable value={citas} showGridlines paginator selectionMode="single"
                               rows={5} dataKey="id" emptyMessage="No tiene citas" 
-                              onRowClick={ver_diagnostico} style={shortStack.style}>
-                              <Column field="fecha_cita" header="Fecha de Cita" />
+                              onRowClick={ver_diagnostico} style={shortStack.style} pt={{
+                                wrapper: {
+                                  style: {
+                                    borderTopLeftRadius: '15px',
+                                    borderTopRightRadius: '15px'
+                                  }
+                                }
+                              }}>
+                              <Column field="fecha_cita" header="Fecha de Cita" pt={{
+                                    headerCell: {
+                                      style: {
+                                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                        borderColor: 'rgba(143, 175, 196, 1)',
+                                      }
+                                    },
+                                    bodyCell: {
+                                      style: {
+                                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                        borderColor: 'rgba(206, 159, 71, 1)',
+                                      }
+                                    },
+                                  }}/>
                             </DataTable>
                             <Dialog header={"Fecha de Cita: " + cita.fecha_cita} visible={displayDia}
-                              onHide={() => setDisplayDia(false)}>
+                              onHide={() => setDisplayDia(false)} style={shortStack.style}>
                               <div className="grid">
                                 <div className="col-12">
                                   <div className="card">
@@ -851,25 +953,80 @@ const Ver_Historial = () => {
                                             <ul className="list-none p-0 m-0 mb-3">
                                               <li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
                                                 <div className="md:w-12">
-                                                <Accordion>
-                                                  <AccordionTab header="Motivos de la Consulta">
+                                                <Accordion style={shortStack.style}>
+                                                  <AccordionTab header="Motivos de la Consulta" pt={{
+                                                    content: {
+                                                      style: {
+                                                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                                        borderColor: 'rgba(143, 175, 196, 1)',
+                                                      }
+                                                    },
+                                                  }}>
                                                     <p>{ cita.motivos_consulta }</p>
                                                   </AccordionTab>
-                                                  <AccordionTab header="Examen Físico">
+                                                  <AccordionTab header="Examen Físico" pt={{
+                                                    content: {
+                                                      style: {
+                                                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                                        borderColor: 'rgba(143, 175, 196, 1)',
+                                                      }
+                                                    },
+                                                  }}>
                                                     <p>{ cita.examen_fisico }</p>
                                                   </AccordionTab>
-                                                  <AccordionTab header="Diagnóstico de la Consulta">
+                                                  <AccordionTab header="Diagnóstico de la Consulta" pt={{
+                                                    content: {
+                                                      style: {
+                                                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                                        borderColor: 'rgba(143, 175, 196, 1)',
+                                                      }
+                                                    },
+                                                  }}>
                                                     <p>{ cita.diagnostico }</p>
                                                   </AccordionTab>
-                                                  <AccordionTab header="Tratamiento Recetado">
+                                                  <AccordionTab header="Tratamiento Recetado" pt={{
+                                                    content: {
+                                                      style: {
+                                                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                                        borderColor: 'rgba(143, 175, 196, 1)',
+                                                      }
+                                                    },
+                                                  }}>
                                                     <p>{ cita.tratamiento }</p>
                                                   </AccordionTab>
-                                                  <AccordionTab header="Archivos de Diagnóstico">
+                                                  <AccordionTab header="Archivos de Diagnóstico" pt={{
+                                                    content: {
+                                                      style: {
+                                                        background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                                        borderColor: 'rgba(143, 175, 196, 1)',
+                                                      }
+                                                    },
+                                                  }}>
                                                     <DataTable value={filesDiagSubidos} showGridlines paginator selectionMode="single"
                                                       rows={5} emptyMessage="No tiene archivos guardados" 
                                                       onRowClick={(e) => obtener_archivo("diag*" + cita.fecha_cita.replaceAll("/", "-"), 
-                                                      e.data.nombre)}>
-                                                      <Column header="Nombre" field="nombre"></Column>
+                                                      e.data.nombre)} pt={{
+                                                        wrapper: {
+                                                          style: {
+                                                            borderTopLeftRadius: '15px',
+                                                            borderTopRightRadius: '15px'
+                                                          }
+                                                        }
+                                                      }}>
+                                                      <Column header="Nombre" field="nombre" pt={{
+                                                        headerCell: {
+                                                          style: {
+                                                            background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                                            borderColor: 'rgba(143, 175, 196, 1)',
+                                                          }
+                                                        },
+                                                        bodyCell: {
+                                                          style: {
+                                                            background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                                            borderColor: 'rgba(206, 159, 71, 1)',
+                                                          }
+                                                        },
+                                                      }}></Column>
                                                     </DataTable>
                                                   </AccordionTab>
                                                 </Accordion>
@@ -891,7 +1048,14 @@ const Ver_Historial = () => {
                     <li className="flex align-items-center border-top-1 border-300 flex-wrap">
                       <div className="md:w-12 md:flex-order-0 flex-order-1">
                         <Accordion style={shortStack.style}>
-                          <AccordionTab header="Dependientes">
+                          <AccordionTab header="Dependientes" pt={{
+                            content: {
+                              style: {
+                                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                borderColor: 'rgba(51, 107, 134, 1)',
+                              }
+                            },
+                          }}>
                             <DataTable style={shortStack.style} value={historiales} showGridlines paginator selectionMode="single"
                               rows={5} dataKey="id" emptyMessage="No tiene dependientes" 
                               onRowClick={ver_dependiente}>

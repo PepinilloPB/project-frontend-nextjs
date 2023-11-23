@@ -30,6 +30,7 @@ import get_consultorios from "../util/get_consultorio_handler";
 import { RadioButton } from "primereact/radiobutton";
 import { InputTextarea } from "primereact/inputtextarea";
 import post_peticion from "../util/post_peticion_handler";
+import Navbar_Recep from "../navbar";
 
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
@@ -248,6 +249,7 @@ const Inicio = () => {
       background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)'
     }}>
       {/*<Navbar tipo_usuario="" />*/}
+      <Navbar_Recep />
       {loading ? 
       <div className={containerClassName}><ProgressSpinner /></div> :
       /*<div className="grid">
@@ -343,6 +345,12 @@ const Inicio = () => {
                     </div> : 
                     <div className="w-6 md:w-2 flex justify-content-end">
                       <Button icon="pi pi-pencil" className="p-button-text" 
+                        style={{ 
+                          borderRadius: '20px',
+                          background: 'rgba(51, 107, 134, 1)',
+                          borderColor: 'rgba(51, 107, 134, 1)',
+                          color: 'rgba(143, 175, 196, 1)'
+                        }}
                         onClick={() => setEditarNombre(true)}/>
                     </div>}
                   </li>
@@ -369,6 +377,12 @@ const Inicio = () => {
                     </div> : 
                     <div className="w-6 md:w-2 flex justify-content-end">
                       <Button icon="pi pi-pencil" className="p-button-text" 
+                        style={{ 
+                          borderRadius: '20px',
+                          background: 'rgba(51, 107, 134, 1)',
+                          borderColor: 'rgba(51, 107, 134, 1)',
+                          color: 'rgba(143, 175, 196, 1)'
+                        }}
                         onClick={() => setEditarApellido(true)}/>
                     </div>}
                   </li>
@@ -581,10 +595,57 @@ const Inicio = () => {
               </div>
             </div>
             <DataTable value={citas} paginator rows={5} emptyMessage="No tiene citas"
-              selectionMode="single" onRowClick={ver_cita} loading={loadingTable} style={shortStack.style}>
-              <Column field="nombre_paciente" header="Nombre de Paciente" style={{ minWidth: '12rem' }} />
-              <Column field="fecha_cita" header="Fecha" style={{ minWidth: '12rem' }} />
-              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} />
+              selectionMode="single" onRowClick={ver_cita} loading={loadingTable} style={shortStack.style}
+              pt={{
+                wrapper: {
+                  style: {
+                    borderTopLeftRadius: '15px',
+                    borderTopRightRadius: '15px'
+                  }
+                }
+              }}>
+              <Column field="nombre_paciente" header="Nombre de Paciente" style={{ minWidth: '12rem' }} pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}/>
+              <Column field="fecha_cita" header="Fecha" style={{ minWidth: '12rem' }} pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}/>
+              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}/>
               { tipo === "Cumplidas" ? 
               <Column field="pagado" header="Estado de Pago" style={{ minWidth: '12rem' }} 
                 body={label_pagado}/> : null}
@@ -611,12 +672,13 @@ const Inicio = () => {
                                   { cita.hora_cita }
                                 </div>
                               </li>
+                              {tipo !== "Citas Canceladas" ?
                               <li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
                                 <div className="text-500 w-6 md:w-4 font-medium">Costo</div>
                                 <div className="text-900 md:w-6 md:flex-order-0 flex-order-1">
                                   { cita.costo } Bs.
                                 </div>
-                              </li>
+                              </li> : null}
                               { tipo === "Citas Cumplidas" ?
                               <li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
                                 <div className="text-500 w-6 md:w-4 font-medium">Tipo de Pago</div>
@@ -638,7 +700,13 @@ const Inicio = () => {
                               <li className="flex align-items-center py-3 px-2 border-top-1 border-300 flex-wrap">
                                 <div className="md:w-12 md:flex-order-0 flex-order-1">
                                   { tipo === "Citas Pendientes" ?
-                                  <Button label="Cancelar Cita" onClick={cancelar_cita}/> :
+                                  <Button label="Cancelar Cita" onClick={cancelar_cita}
+                                  style={{ 
+                                    borderRadius: '20px',
+                                    background: 'rgba(51, 107, 134, 1)',
+                                    borderColor: 'rgba(51, 107, 134, 1)',
+                                    color: 'rgba(143, 175, 196, 1)'
+                                  }}/> :
                                     tipo === "Cumplidas" && cita.pagado !== true ?
                                   <Button label="Pagar Cita" onClick={pagar_cita}/> :
                                     null}

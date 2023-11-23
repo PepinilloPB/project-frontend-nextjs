@@ -294,25 +294,46 @@ const Inicio = () => {
                         <span>Última Actualización: { new Date(empleado.fecha_actualizacion).toLocaleDateString() }</span>
                       </div>
                     </li>
-                    <Sidebar visible={solicitarPeticion} onHide={limpiar_peticion} baseZIndex={1000} fullScreen>
-                    <div className="grid">
+                    <Sidebar visible={solicitarPeticion} onHide={limpiar_peticion} baseZIndex={1000} fullScreen
+                    style={{
+                      background: 'rgba(51, 107, 134, 1)'
+                    }}>
+                    <div className="grid" style={shortStack.style}>
                       <div className="col-12">
-                        <div className="card">
+                        <div className="card" style={{
+                          background: 'rgba(143, 175, 196, 1)',
+                          borderColor: 'rgba(143, 175, 196, 1)'
+                        }}>
                           <h5>Solicitar Petición</h5>
                           <div className="p-fluid formgrid grid">
                             <div className="field col-12 md:col-6">
                               <label>Consultorio</label>
                               <Dropdown value={consultorioCambio} options={consultorios} optionLabel="nombre"
-                                onChange={(e) => setConsultorioCambio(e.value)}/>
+                                onChange={(e) => setConsultorioCambio(e.value)} style={{ 
+                                  borderRadius: '15px',
+                                  background: 'rgba(206, 159, 71, 1)',
+                                  borderColor: 'rgba(206, 159, 71, 1)',
+                                  color: 'rgba(41, 49, 51, 1)'
+                                }}/>
                             </div> 
                             <div className="field col-12 md:col-12">
                               <label>Descripción</label>
                               <InputTextarea value={descrip} onChange={(e) => setDescrip(e.target.value)} 
-                                rows={5} cols={30}></InputTextarea>
+                                rows={5} cols={30} style={{ 
+                                  borderRadius: '15px',
+                                  background: 'rgba(206, 159, 71, 1)',
+                                  borderColor: 'rgba(206, 159, 71, 1)',
+                                  color: 'rgba(41, 49, 51, 1)'
+                                }}></InputTextarea>
                             </div>
                             <div className="field col-12 md:col-12">
                               <Button label="Enviar Petición" onClick={enviar_peticion} 
-                                disabled={consultorioCambio.id === ""} ></Button>
+                                disabled={consultorioCambio.id === ""} style={{ 
+                                  borderRadius: '20px',
+                                  background: 'rgba(51, 107, 134, 1)',
+                                  borderColor: 'rgba(51, 107, 134, 1)',
+                                  color: 'rgba(143, 175, 196, 1)'
+                                }}></Button>
                             </div>
                           </div>
                         </div>

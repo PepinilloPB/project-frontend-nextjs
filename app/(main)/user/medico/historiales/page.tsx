@@ -78,7 +78,7 @@ const Buscar_Historiales = () => {
     <div className={containerClassName}><ProgressSpinner /></div> :
     <div className="grid" style={{
       background: 'rgba(143, 175, 196, 1)',
-      height: '100%'
+      height: '100vh'
       //height: window.innerHeight
     }}>
       <div className="col-12" style={shortStack.style}>
@@ -125,10 +125,56 @@ const Buscar_Historiales = () => {
               { loadingTabla ? 
               <div className={containerClassName}><ProgressSpinner /></div>: 
               <DataTable value={resultados} paginator rows={10} selectionMode="single"
-                onRowClick={ver_historial}>
-                <Column header="Nombre" field="nombre"></Column>
-                <Column header="Apellido" field="apellido"></Column>
-                <Column header="Código" field="codigo"></Column>
+                onRowClick={ver_historial} style={shortStack.style} pt={{
+                  wrapper: {
+                    style: {
+                      borderTopLeftRadius: '15px',
+                      borderTopRightRadius: '15px'
+                    }
+                  }
+                }}>
+                <Column header="Nombre" field="nombre" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
+                <Column header="Apellido" field="apellido" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
+                <Column header="Código" field="codigo" pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}></Column>
               </DataTable>}
             </div> : null}
           </div>

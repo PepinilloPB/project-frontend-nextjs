@@ -69,10 +69,56 @@ const Ver_Citas = () => {
         }}>
         <h5>Citas</h5>
             <DataTable style={shortStack.style} value={citas} paginator rows={5} emptyMessage="No tiene citas"
-              selectionMode="single" onRowClick={ver_cita}>
-              <Column field="nombre_paciente" header="Nombre de Paciente" style={{ minWidth: '12rem' }} />
-              <Column field="fecha_cita" header="Fecha" style={{ minWidth: '12rem' }} />
-              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} />
+              selectionMode="single" onRowClick={ver_cita} pt={{
+                wrapper: {
+                  style: {
+                    borderTopLeftRadius: '15px',
+                    borderTopRightRadius: '15px'
+                  }
+                }
+              }}>
+              <Column field="nombre_paciente" header="Nombre de Paciente" style={{ minWidth: '12rem' }} pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}/>
+              <Column field="fecha_cita" header="Fecha" style={{ minWidth: '12rem' }} pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}/>
+              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} pt={{
+                    headerCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                        borderColor: 'rgba(51, 107, 134, 1)',
+                      }
+                    },
+                    bodyCell: {
+                      style: {
+                        background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                        borderColor: 'rgba(206, 159, 71, 1)',
+                      }
+                    },
+                  }}/>
             </DataTable>
         </div>
       </div>
