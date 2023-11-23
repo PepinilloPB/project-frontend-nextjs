@@ -612,10 +612,60 @@ const Solicitar_Cita = () => {
                 <div className="field col-12 md:col-12">
                   <label htmlFor="citas">Citas</label>
                   <DataTable style={shortStack.style} value={citas} selectionMode="single" rowClassName={rowClassName} 
-                    rows={turno.max_citas} onRowSelect={guardar_cita}>
-                    <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }}></Column>
-                    <Column field="num_ficha" header="Ficha" style={{ minWidth: '12rem' }}></Column>
-                    <Column field="nombre_paciente" header="" body={cita_libre} style={{ minWidth: '12rem' }} />
+                    rows={turno.max_citas} onRowSelect={guardar_cita} 
+                    pt={{
+                      wrapper: {
+                        style: {
+                          borderTopLeftRadius: '15px',
+                          borderTopRightRadius: '15px'
+                        }
+                      }
+                    }}>
+                    <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }}
+                      pt={{
+                        headerCell: {
+                          style: {
+                            background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                            borderColor: 'rgba(51, 107, 134, 1)',
+                          }
+                        },
+                        bodyCell: {
+                          style: {
+                            background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                            borderColor: 'rgba(206, 159, 71, 1)',
+                          }
+                        },
+                      }}></Column>
+                    <Column field="num_ficha" header="Ficha" style={{ minWidth: '12rem' }}
+                      pt={{
+                        headerCell: {
+                          style: {
+                            background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                            borderColor: 'rgba(51, 107, 134, 1)',
+                          }
+                        },
+                        bodyCell: {
+                          style: {
+                            background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                            borderColor: 'rgba(206, 159, 71, 1)',
+                          }
+                        },
+                      }}></Column>
+                    <Column field="nombre_paciente" header="" body={cita_libre} style={{ minWidth: '12rem' }} 
+                      pt={{
+                        headerCell: {
+                          style: {
+                            background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                            borderColor: 'rgba(51, 107, 134, 1)',
+                          }
+                        },
+                        bodyCell: {
+                          style: {
+                            background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                            borderColor: 'rgba(206, 159, 71, 1)',
+                          }
+                        },
+                      }}/>
                   </DataTable>
                 </div>
                 ) : null}

@@ -312,45 +312,158 @@ const Inicio_Paciente = () => {
                     <li className="flex align-items-center border-top-1 border-300 flex-wrap" >
                       <div className="md:w-12 md:flex-order-0 flex-order-1">
                         <Accordion style={shortStack.style}>
-                          <AccordionTab header="Dependientes" className="text-600 font-medium">
+                          <AccordionTab header="Dependientes" className="text-600 font-medium" 
+                          pt={{
+                            content: {
+                              style: {
+                                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                                borderColor: 'rgba(51, 107, 134, 1)',
+                              }
+                            },
+                          }}>
                             <DataTable value={historiales} showGridlines paginator selectionMode="single"
                               rows={5} dataKey="id" emptyMessage="No tiene dependientes" 
-                              onRowClick={ver_dependiente} style={shortStack.style}>
-                              <Column field="nombre" header="Nombre" />
-                              <Column field="apellido" header="Apellido" />
-                              <Column field="codigo" header="Código" />
-                              <Column field="ci" header="C.I." />
+                              onRowClick={ver_dependiente} style={shortStack.style}
+                              pt={{
+                                wrapper: {
+                                  style: {
+                                    borderTopLeftRadius: '15px',
+                                    borderTopRightRadius: '15px'
+                                  }
+                                }
+                              }}>
+                              <Column field="nombre" header="Nombre" 
+                              pt={{
+                                headerCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                                bodyCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                  }
+                                },
+                              }}/>
+                              <Column field="apellido" header="Apellido" 
+                              pt={{
+                                headerCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                                bodyCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                  }
+                                },
+                              }}/>
+                              <Column field="codigo" header="Código" 
+                              pt={{
+                                headerCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                                bodyCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                  }
+                                },
+                              }}/>
+                              <Column field="ci" header="C.I." 
+                              pt={{
+                                headerCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(143, 175, 196, 1) 10%, rgba(143, 175, 196, 1) 30%)',
+                                    borderColor: 'rgba(143, 175, 196, 1)',
+                                  }
+                                },
+                                bodyCell: {
+                                  style: {
+                                    background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                                    borderColor: 'rgba(206, 159, 71, 1)',
+                                  }
+                                },
+                              }}/>
                             </DataTable>
-                            <Button label="Agregar Dependiente" onClick={() => setDisplayNewDep(true)}></Button>
-                            <Sidebar visible={displayNewDep} onHide={() => setDisplayNewDep(false)} baseZIndex={1000} fullScreen>
-                              <div className="grid">
+                            <Button label="Agregar Dependiente" onClick={() => setDisplayNewDep(true)}
+                            style={{ 
+                              borderBottomRightRadius: '20px',
+                              borderBottomLeftRadius: '20px',
+                              borderTopRightRadius: '0px',
+                              borderTopLeftRadius: '0px',
+                              background: 'rgba(143, 175, 196, 1)',
+                              borderColor: 'rgba(143, 175, 196, 1)',
+                              color: 'rgba(51, 107, 134, 1)'
+                            }}></Button>
+                            <Sidebar visible={displayNewDep} onHide={() => setDisplayNewDep(false)} baseZIndex={1000} fullScreen
+                            style={{
+                              background: 'rgba(51, 107, 134, 1)'
+                            }}>
+                              <div className="grid" style={shortStack.style}>
                                 <div className="col-12">
-                                  <div className="card">
+                                  <div className="card" style={{
+                                    background: 'rgba(143, 175, 196, 1)',
+                                    borderColor: 'rgba(143, 175, 196, 1)'
+                                  }}>
                                     <h5>Agregar Dependiente</h5>
                                     <div className="p-fluid formgrid grid">
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="nombreDep">Nombre del Dependiente</label>
-                                        <InputText id="nombreDep" type="text" value={ nombreDep } placeholder="Nombre" 
+                                        <InputText id="nombreDep" type="text" value={ nombreDep } style={{ 
+                                          borderRadius: '15px',
+                                          background: 'rgba(206, 159, 71, 1)',
+                                          borderColor: 'rgba(206, 159, 71, 1)',
+                                          color: 'rgba(41, 49, 51, 1)'
+                                        }}
                                           onChange={(e) => setNombreDep(e.target.value)} className={invalidoNombreDep ? "p-invalid" : ""}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="apellidoDep">Apellido del Dependiente</label>
-                                        <InputText id="apellidoDep" type="text" value={ apellidoDep } placeholder="Apellido"
+                                        <InputText id="apellidoDep" type="text" value={ apellidoDep } style={{ 
+                                          borderRadius: '15px',
+                                          background: 'rgba(206, 159, 71, 1)',
+                                          borderColor: 'rgba(206, 159, 71, 1)',
+                                          color: 'rgba(41, 49, 51, 1)'
+                                        }}
                                           onChange={(e) => setApellidoDep(e.target.value)} className={invalidoApellidoDep ? "p-invalid" : ""}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="telefono">Teléfono</label>
-                                        <InputText id="telefono" type="text" value={ telefono } placeholder="Teléfono" 
+                                        <InputText id="telefono" type="text" value={ telefono } style={{ 
+                                          borderRadius: '15px',
+                                          background: 'rgba(206, 159, 71, 1)',
+                                          borderColor: 'rgba(206, 159, 71, 1)',
+                                          color: 'rgba(41, 49, 51, 1)'
+                                        }} 
                                           onChange={(e) => setTelefono(e.target.value)} className={invalidoTelefono ? "p-invalid" : ""}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="direccion">Dirección</label>
-                                        <InputText id="direccion" type="text" value={ direccion } placeholder="Dirección"
+                                        <InputText id="direccion" type="text" value={ direccion } style={{ 
+                                          borderRadius: '15px',
+                                          background: 'rgba(206, 159, 71, 1)',
+                                          borderColor: 'rgba(206, 159, 71, 1)',
+                                          color: 'rgba(41, 49, 51, 1)'
+                                        }}
                                           onChange={(e) => setDireccion(e.target.value)} className={invalidoDireccion ? "p-invalid" : ""}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="fecha">Fecha de Nacimiento</label>
                                         <Calendar id="fecha" value={ fechaDep } showButtonBar
+                                        inputStyle={{ 
+                                          borderRadius: '15px',
+                                          background: 'rgba(206, 159, 71, 1)',
+                                          borderColor: 'rgba(206, 159, 71, 1)',
+                                          color: 'rgba(41, 49, 51, 1)'
+                                        }}
                                           onChange={(e) => {
                                             const date: any = e.value;
                                             setFechaDep(e.value ?? null);
@@ -360,28 +473,53 @@ const Inicio_Paciente = () => {
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="ci">Carnet de Identidad</label>
                                         <InputText id="ci" type="text" value={ ci } className={invalidoCi ? "p-invalid" : ""}
-                                          onChange={(e) => setCi(e.target.value)} placeholder="C.I."/>
+                                          onChange={(e) => setCi(e.target.value)} style={{ 
+                                            borderRadius: '15px',
+                                            background: 'rgba(206, 159, 71, 1)',
+                                            borderColor: 'rgba(206, 159, 71, 1)',
+                                            color: 'rgba(41, 49, 51, 1)'
+                                          }}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="sexo">Sexo</label>
                                         <Dropdown value={ sexo } options={ opciones_sexo } className={invalidoSexo ? "p-invalid" : ""}
                                           onChange={(event) => {setSexo(event.target.value)}} 
-                                          placeholder="Sexo"/>
+                                          style={{ 
+                                            borderRadius: '15px',
+                                            background: 'rgba(206, 159, 71, 1)',
+                                            borderColor: 'rgba(206, 159, 71, 1)',
+                                            color: 'rgba(41, 49, 51, 1)'
+                                          }}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="civil">Estado Civil</label>
                                         <Dropdown id="civil" value={ civil } options={ opciones_civil } 
                                           onChange={(event) => {setCivil(event.target.value)}} 
-                                          placeholder="Estado Civil" className={invalidoCivil ? "p-invalid" : ""}/>
+                                          style={{ 
+                                            borderRadius: '15px',
+                                            background: 'rgba(206, 159, 71, 1)',
+                                            borderColor: 'rgba(206, 159, 71, 1)',
+                                            color: 'rgba(41, 49, 51, 1)'
+                                          }} className={invalidoCivil ? "p-invalid" : ""}/>
                                       </div>
                                       <div className="field col-12 md:col-6">
                                         <label htmlFor="nacionalidad">Nacionalidad</label>
-                                        <InputText id="nacionalidad" type="text" value={ nacionalidad } placeholder="Nacionalidad"
+                                        <InputText id="nacionalidad" type="text" value={ nacionalidad } style={{ 
+                                          borderRadius: '15px',
+                                          background: 'rgba(206, 159, 71, 1)',
+                                          borderColor: 'rgba(206, 159, 71, 1)',
+                                          color: 'rgba(41, 49, 51, 1)'
+                                        }}
                                           onChange={(e) => setNacionalidad(e.target.value)} className={invalidoNacionalidad ? "p-invalid" : ""}/>
                                       </div>
                                       <div className="field col-12 md:col-12">
                                         <Button label="Crear Usuario" className="p-3 text-xl" loading={loading} 
-                                          onClick={agregar_dependiente}></Button>
+                                          onClick={agregar_dependiente} style={{ 
+                                            borderRadius: '20px',
+                                            background: 'rgba(51, 107, 134, 1)',
+                                            borderColor: 'rgba(51, 107, 134, 1)',
+                                            color: 'rgba(143, 175, 196, 1)'
+                                          }}></Button>
                                       </div>
                                     </div>
                                   </div>

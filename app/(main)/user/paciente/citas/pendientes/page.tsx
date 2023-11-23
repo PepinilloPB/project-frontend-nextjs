@@ -140,35 +140,162 @@ const Citas_Pendientes = () => {
             borderColor: 'rgba(143, 175, 196, 1)'
           }}>
             <h5>Citas de Paciente</h5>
-            <DataTable style={shortStack.style} value={citas} paginator className="p-datatable-gridlines" showGridlines rows={5}
+            <DataTable style={shortStack.style} value={citas} paginator className="p-datatable-gridlines mt-0 md:mt-4" showGridlines rows={5}
               dataKey="id" filters={filtros} filterDisplay="menu" loading={loading}
-              responsiveLayout="scroll" emptyMessage="No tiene citas" selectionMode="single"
-              onRowClick={ver_mas}>
+              responsiveLayout="scroll" emptyMessage="No tiene citas" selectionMode="single" onRowClick={ver_mas}
+              pt={{
+                wrapper: {
+                  style: {
+                    borderTopLeftRadius: '15px',
+                    borderTopRightRadius: '15px'
+                  }
+                }
+              }}>
               <Column field="nombre_paciente" header="Nombre de Paciente" filter 
-                filterPlaceholder="Buscar por nombre" style={{ minWidth: '12rem' }} />
+                filterPlaceholder="Buscar por nombre" style={{ minWidth: '12rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
               <Column field="fecha_cita" header="Fecha" filterField="fecha" 
-                dataType="date" style={{ minWidth: '10rem' }} />
-              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} />
-              <Column field="externa" header="Cita externa" body={externa} style={{ minWidth: '12rem' }} />
+                dataType="date" style={{ minWidth: '10rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
+              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
+              <Column field="externa" header="Cita externa" body={externa} style={{ minWidth: '12rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
               {/*<Column field="id" header="" body={ver_mas} style={{ minWidth: '12rem' }} />*/}
             </DataTable>
 
             { dependiente ? 
-            (<DataTable value={citasD} paginator className="p-datatable-gridlines" showGridlines
+            (<DataTable value={citasD} paginator className="p-datatable-gridlines mt-0 md:mt-4" showGridlines
               rows={5} dataKey="id" filters={filtros} filterDisplay="menu" loading={loading}
-              responsiveLayout="scroll" emptyMessage="No tiene citas" selectionMode="single"
-              onRowClick={ver_mas}>
+              responsiveLayout="scroll" emptyMessage="No tiene citas" selectionMode="single" onRowClick={ver_mas}
+              pt={{
+                wrapper: {
+                  style: {
+                    borderTopLeftRadius: '15px',
+                    borderTopRightRadius: '15px'
+                  }
+                }
+              }}>
               <Column field="nombre_paciente" header="Nombre de Paciente" filter 
-                filterPlaceholder="Buscar por nombre" style={{ minWidth: '12rem' }} />
+                filterPlaceholder="Buscar por nombre" style={{ minWidth: '12rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
               <Column field="fecha_cita" header="Fecha" filterField="fecha" 
-                dataType="date" style={{ minWidth: '10rem' }} />
-              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} />
-              <Column field="externa" header="Cita externa" body={externa} style={{ minWidth: '12rem' }} />
+                dataType="date" style={{ minWidth: '10rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
+              <Column field="hora_cita" header="Hora" style={{ minWidth: '12rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
+              <Column field="externa" header="Cita externa" body={externa} style={{ minWidth: '12rem' }} 
+                pt={{
+                  headerCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                      borderColor: 'rgba(51, 107, 134, 1)',
+                    }
+                  },
+                  bodyCell: {
+                    style: {
+                      background: 'linear-gradient(180deg, rgba(206, 159, 71, 1) 10%, rgba(206, 159, 71, 1) 30%)',
+                      borderColor: 'rgba(206, 159, 71, 1)',
+                    }
+                  },
+                }}/>
               {/*<Column field="id" header="" body={ver_mas} style={{ minWidth: '12rem' }} />*/}
             </DataTable>) : null}
             
-            <Button label="Ver citas de dependientes"  
-              loading={loading} disabled={dependiente} onClick={tabla_dependiente} style={{ 
+            <Button label="Ver citas de dependientes" className="mt-0 md:mt-4"
+              loading={loading} disabled={dependiente} onClick={tabla_dependiente} 
+              style={{ 
                 borderRadius: '20px',
                 background: 'rgba(51, 107, 134, 1)',
                 borderColor: 'rgba(51, 107, 134, 1)',

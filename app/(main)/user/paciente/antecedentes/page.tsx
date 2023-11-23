@@ -90,20 +90,60 @@ const Antecedentes_Medicos = () => {
       }}>
         <h5 style={shortStack.style}>Antecedentes Médicos</h5>
         <Accordion style={shortStack.style}>
-          <AccordionTab header="Antecedentes Patológicos">
-            <p>{ historial.a_patologicos }</p>
+          <AccordionTab header="Antecedentes Patológicos"
+            pt={{
+              content: {
+                style: {
+                  background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                  borderColor: 'rgba(51, 107, 134, 1)',
+                }
+              },
+            }}>
+            <p style={{color: 'rgba(143, 175, 196, 1)'}}>{ historial.a_patologicos }</p>
           </AccordionTab>
-          <AccordionTab header="Antecedentes No Patológicos">
-            <p>{ historial.a_no_patologicos }</p>
+          <AccordionTab header="Antecedentes No Patológicos"
+          pt={{
+            content: {
+              style: {
+                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                borderColor: 'rgba(51, 107, 134, 1)',
+              }
+            },
+          }}>
+            <p style={{color: 'rgba(143, 175, 196, 1)'}}>{ historial.a_no_patologicos }</p>
           </AccordionTab>
-          <AccordionTab header="Antecedentes Quirúrgicos">
-            <p>{ historial.a_quirurgicos }</p>
+          <AccordionTab header="Antecedentes Quirúrgicos"
+          pt={{
+            content: {
+              style: {
+                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                borderColor: 'rgba(51, 107, 134, 1)',
+              }
+            },
+          }}>
+            <p style={{color: 'rgba(143, 175, 196, 1)'}}>{ historial.a_quirurgicos }</p>
           </AccordionTab>
-          <AccordionTab header="Antecedentes Alérgicos">
-            <p>{ historial.a_alergicos }</p>
+          <AccordionTab header="Antecedentes Alérgicos"
+          pt={{
+            content: {
+              style: {
+                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                borderColor: 'rgba(51, 107, 134, 1)',
+              }
+            },
+          }}>
+            <p style={{color: 'rgba(143, 175, 196, 1)'}}>{ historial.a_alergicos }</p>
           </AccordionTab>
-          <AccordionTab header="Medicación Habitual">
-            <p>{ historial.med_habitual }</p>
+          <AccordionTab header="Medicación Habitual"
+          pt={{
+            content: {
+              style: {
+                background: 'linear-gradient(180deg, rgba(51, 107, 134, 1) 10%, rgba(51, 107, 134, 1) 30%)',
+                borderColor: 'rgba(51, 107, 134, 1)',
+              }
+            },
+          }}>
+            <p style={{color: 'rgba(143, 175, 196, 1)'}}>{ historial.med_habitual }</p>
           </AccordionTab>
         </Accordion>
       </div>)}
