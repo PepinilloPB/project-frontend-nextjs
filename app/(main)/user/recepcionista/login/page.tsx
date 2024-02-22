@@ -1,5 +1,7 @@
 'use client';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "./serveractions";
 import { useRouter } from 'next/navigation';
 import localfont from 'next/font/local';
 
@@ -14,6 +16,9 @@ import login from '../util/login_handler';
 const shortStack = localfont({ src: "../../../../../fonts/ShortStack-Regular.ttf" });
 
 const Login_Recep = () => {
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
+
+  const [isVerified, setIsverified] = useState<boolean>(false)
   const [loading, setLoading] = useState(false);
 
   const [email, setEmail] = useState('');
@@ -34,6 +39,13 @@ const Login_Recep = () => {
 
     login(body)
     .then(() => router.push('/user/recepcionista/inicio'));
+  }
+
+  async function handleCaptchaSubmission(token: string | null) {
+    // Server function to verify captcha
+    await verifyCaptcha(token)
+      .then(() => setIsverified(true))
+      .catch(() => setIsverified(false))
   }
 
   return (
@@ -81,7 +93,19 @@ const Login_Recep = () => {
 
               <div className="flex align-items-center justify-content-between mb-5 gap-5">
               </div>
-              <Button className="w-full p-3 text-xl justify-content-center" loading={loading} onClick={autenticar}
+              <>
+                <ReCAPTCHA
+                  className="flex align-items-center justify-content-center mb-5 gap-5"
+                  sitekey="6LcOjHwpAAAAAAnBBNg7B-YkLRXCzq0FJmVyMmOb"
+                  ref={recaptchaRef}
+                  onChange={handleCaptchaSubmission}
+                />
+              </>
+              <Button
+                disabled={!isVerified} 
+                loading={loading} 
+                onClick={autenticar}
+                className="w-full p-3 text-xl justify-content-center" 
                 style={{ 
                   borderRadius: '20px',
                   background: 'rgba(51, 107, 134, 1)',

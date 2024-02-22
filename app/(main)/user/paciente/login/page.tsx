@@ -109,9 +109,6 @@ const Login_Paciente = () => {
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
-                {/*<Button type="submit" disabled={!isVerified}>
-                  Submit feedback
-                </Button>*/}
               </>
               <Button 
                 disabled={!isVerified}
